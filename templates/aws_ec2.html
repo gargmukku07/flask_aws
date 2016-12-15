@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EC2</title>
+</head>
+<body>
+    <form>
+    Application/Server Type:
+	<select name="server_type" form="carform">
+     <option value="author">Author</option>
+     <option value="publish">Publish</option>
+     <option value="webserver">Webserver</option>
+     <option value="zabbix">Zabbix</option>
+    </select><br>
+
+	Application/Server Environment:
+	<select name="environment" form="carform">
+     <option value="dev">Dev</option>
+     <option value="qa">QA</option>
+     <option value="uat">Uat</option>
+    </select><br>
+
+	Instance Key Pair: <input type="text" name="key_name" value="aws_cq_demo" required><br>
+	Security Group: <input type="text" name="security_group" required><br>
+	Subnet ID: <input type="text" name="subnet_id" required><br>
+	Instance Type:
+	<select name="instance_type" form="carform">
+     <option value="t2_micro">T2-Micro</option>
+     <option value="t1_mini">T1-Mini</option>
+    </select><br>
+	Instance Count: <input type="number" name="instance_count" min="1" max="5" required><br>
+
+	<input type="submit" name="Submit">
+	<input type="reset" name="Reset"><br>
+    </form>
+</body>
+</html>
