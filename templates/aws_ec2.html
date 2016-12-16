@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>EC2</title>
+    <title>AWS EC2</title>
 </head>
 <body>
-    <form>
+    <form role="form" action="/aws_ec2" method="post" id="carform">
     Application/Server Type:
-	<select name="server_type" form="carform">
+    <select name="server_type" form="carform">
      <option value="author">Author</option>
      <option value="publish">Publish</option>
      <option value="webserver">Webserver</option>
@@ -21,17 +21,17 @@
      <option value="uat">Uat</option>
     </select><br>
 
-	Instance Key Pair: <input type="text" name="key_name" value="aws_cq_demo" required><br>
-	Security Group: <input type="text" name="security_group" required><br>
-	Subnet ID: <input type="text" name="subnet_id" required><br>
+	Instance Key Pair: <input type="text" name="key_name" value="{{ request.form.key_name }}" required><br>
+	Security Group: <input type="text" name="security_group" value="{{ request.form.security_group }}"><br>
+	Subnet ID: <input type="text" name="subnet_id" value="{{ request.form.subnet_id }}" required><br>
 	Instance Type:
 	<select name="instance_type" form="carform">
-     <option value="t2_micro">T2-Micro</option>
-     <option value="t1_mini">T1-Mini</option>
+     <option value="t2.micro">t2.micro</option>
+     <option value="t1.mini">T1-Mini</option>
     </select><br>
-	Instance Count: <input type="number" name="instance_count" min="1" max="5" required><br>
+	Instance Count: <input type="number" name="instance_count" min="1" max="5" value="{{ request.form.instance_count }}" required><br>
 
-	<input type="submit" name="Submit">
+	<input type="submit" name="Submit" value="Launch">
 	<input type="reset" name="Reset"><br>
     </form>
 </body>
