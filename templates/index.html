@@ -1,21 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Framework</title>
-</head>
-<body>
 
-        <div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a>
-                    </li>
-                    <li><a href="login">Sign In</a>
-                    </li>
-                </ul>
-            </nav>
-            <h3>Python Flask App {{ aws_ec2 }} </h3>
-        </div>
-</body>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>DevOps</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="/static/js/html5shiv.js"></script><![endif]-->
+		<script src="/static/js/jquery.min.js"></script>
+		<script src="/static/js/skel.min.js"></script>
+		<script src="/static/js/skel-layers.min.js"></script>
+		<script src="/static/js/init.js"></script>
+		<!--
+        <noscript>
+			<link rel="stylesheet" href="/static/css/skel.css" />
+			<link rel="stylesheet" href="/static/css/style.css" />
+			<link rel="stylesheet" href="/static/css/style-xlarge.css" />
+		</noscript>
+		-->
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/skel.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename="css/style-xlarge.css") }}">
+	</head>
+	<body class="landing">
+
+		<!-- Header -->
+			<header id="header">
+				<h1><a href="/">DevOps Framework</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="#">Generic</a></li>
+						<li><a href="#">Elements</a></li>
+						<li><a href="#" class="button special">Sign Up</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Banner -->
+			<section id="banner">
+				<h2>Welcome to DevOps Automation framework</h2>
+				<p>Get your AEM & Hybris environments @ finger clicks</p>
+				<ul class="actions">
+					<li>
+						<a href="#" class="button big">Latest News</a>
+					</li>
+				</ul>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper style1 special">
+				<div class="container">
+					<header class="major">
+						<h2>Available cloud environments</h2>
+						<p>AEM and Hybris environments on below available clouds!!!</p>
+					</header>
+					<div class="row 150%">
+						<div class="4u 12u$(medium)">
+							<section class="box">
+                                <i class="icon big rounded color1 fa-amazon"></i>
+                                <h3><a href="/aws">AWS</a></h3>
+								<p>Host your environments on your project's Amazone Web Services Account!!!</p>
+							</section>
+						</div>
+						<div class="4u 12u$(medium)">
+							<section class="box">
+								<i class="icon big rounded color9 fa-cloud"></i>
+								<h3>Microsoft Azure</h3>
+								<p>Azure Support for AEM and Hybris are also available.</p>
+							</section>
+						</div>
+						<div class="4u$ 12u$(medium)">
+							<section class="box">
+								<i class="icon big rounded color6 fa-rocket"></i>
+								<h3>SapeCloud</h3>
+								<p>Get you SapeCloud VM and deploy fully automated AEM and Hybris environments.</p>
+							</section>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style2 special">
+				<div class="container">
+					<header class="major">
+						<h2>Recent Projects</h2>
+						<p>Projects, which has deployed DevOps automation framework.</p>
+					</header>
+					<section class="profiles">
+						<div class="row">
+							<section class="3u 6u(medium) 12u$(xsmall) profile">
+								<img src="/static/images/profile_placeholder.gif" alt="" />
+								<h4>SOH</h4>
+								<p>SOH Project</p>
+							</section>
+							<section class="3u 6u$(medium) 12u$(xsmall) profile">
+								<img src="/static/images/profile_placeholder.gif" alt="" />
+								<h4>Project 2</h4>
+								<p>Project22</p>
+							</section>
+							<section class="3u 6u(medium) 12u$(xsmall) profile">
+								<img src="/static/images/profile_placeholder.gif" alt="" />
+								<h4>Proj3</h4>
+								<p>Harum corrupti quia</p>
+							</section>
+							<section class="3u$ 6u$(medium) 12u$(xsmall) profile">
+								<img src="/static/images/profile_placeholder.gif" alt="" />
+								<h4>Proj4</h4>
+								<p>Et natus sapiente</p>
+							</section>
+						</div>
+					</section>
+					<footer>
+						<p>For details list and project success stories, please visit our devops success stories page below!</p>
+						<ul class="actions">
+							<li>
+								<a href="#" class="button big">Success Stories</a>
+							</li>
+						</ul>
+					</footer>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper style3 special">
+				<div class="container">
+					<header class="major">
+						<h2>Do You Need Support???</h2>
+						<p>Please contact InfraDevOps team for any support!</p>
+					</header>
+				</div>
+				<div class="container 50%">
+					<form action="#" method="post">
+						<div class="row uniform">
+							<div class="6u 12u$(small)">
+								<input name="name" id="name" value="" placeholder="Name" type="text">
+							</div>
+							<div class="6u$ 12u$(small)">
+								<input name="email" id="email" value="" placeholder="Email" type="email">
+							</div>
+							<div class="12u$">
+								<textarea name="message" id="message" placeholder="Message" rows="6"></textarea>
+							</div>
+							<div class="12u$">
+								<ul class="actions">
+									<li><input value="Send Message" class="special big" type="submit"></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<section class="links">
+						<div class="row">
+							<section class="3u 6u(medium) 12u$(small)">
+								<h3>About Us</h3>
+								<ul class="unstyled">
+									<li><a href="#">Lorem ipsum dolor sit</a></li>
+									<li><a href="#">Nesciunt itaque, alias possimus</a></li>
+								</ul>
+							</section>
+							<section class="3u 6u$(medium) 12u$(small)">
+								<h3>Contact Us</h3>
+								<ul class="unstyled">
+									<li><a href="#">Lorem ipsum dolor sit</a></li>
+									<li><a href="#">Reiciendis dicta laboriosam enim</a></li>
+								</ul>
+							</section>
+							<section class="3u 6u(medium) 12u$(small)">
+								<h3>InfraDevOps Team</h3>
+								<ul class="unstyled">
+									<li><a href="#">Lorem ipsum dolor sit</a></li>
+									<li><a href="#">Distinctio, inventore quidem nesciunt</a></li>
+								</ul>
+							</section>
+							<section class="3u$ 6u$(medium) 12u$(small)">
+								<h3>Success Stories</h3>
+								<ul class="unstyled">
+									<li><a href="#">Lorem ipsum dolor sit</a></li>
+									<li><a href="#">Recusandae, culpa necessita nam</a></li>
+								</ul>
+							</section>
+						</div>
+					</section>
+					<div class="row">
+						<div class="8u 12u$(medium)">
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved.</li>
+								<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+								<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+							</ul>
+						</div>
+						<div class="4u$ 12u$(medium)">
+							<ul class="icons">
+								<li>
+									<a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+	</body>
 </html>

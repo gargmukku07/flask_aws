@@ -1,17 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AWS</title>
-</head>
-<body>
-    <form role="form" method="post" action="/aws">
-    AWS Access Key: <input type="text" name="access_key" value="{{ request.form.access_key }}" required><br>
-	AWS Secret Key: <input type="text" name="secret_key" value="{{ request.form.secret_key }}" required><br>
-	AWS Region: <input type="text" name="region" value="{{ request.form.region }}" required><br>
+{% extends 'aws_new.html' %}
+{% block container %}
+            <section id="main" class="wrapper">
+                <div class="container">
+                    <header class="major">
+						<h2>AWS Verification</h2>
+						<p>Please mentioned below details to varify your AWS credentials.</p>
+					</header>
 
-	<input type="submit" name="Submit" value="Check">
-	<input type="reset" name="Reset"><br>
-    </form>
-</body>
-</html>
+					<!-- <a href="/aws" class="image fit"><img src="/static/images/aws_logo.png" alt="" /></a> -->
+
+                    <form role="form" method="post" action="/aws" id="awsform">
+                        <div class="row uniform" 50%>
+                            <div class="6u 12u$(4)">
+                                AWS Access Key: <input type="text" name="access_key" value="{{ request.form.access_key }}" required><br>
+                            </div>
+
+							<div class="6u$ 12u$(4)">
+                                AWS Secret Key: <input type="text" name="secret_key" value="{{ request.form.secret_key }}" required><br>
+							</div>
+                            <div class="12u$">
+                                <div class="select-wrapper">
+                                    AWS Regions:
+                                    <select name="region" form="awsform">
+										<option value="ap-south-1">Mumbai</option>
+										<option value="1">Sydney</option>
+										<option value="1">North Verginia</option>
+										<option value="1">Ohio</option>
+										<option value="1">ETC</option>
+									</select>
+								</div>
+                            </div>
+                            <div class="12u$">
+                                <ul class="actions">
+								    <li><input type="submit" name="submit" value="Verify" class="special" /></li>
+									<li><input type="reset" name="Reset" value="Reset" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+{% endblock %}

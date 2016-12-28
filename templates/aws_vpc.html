@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AWS VPC</title>
+</head>
+<body>
+    <form role="form" action="/aws_vpc" method="post">
+    	VPC Name Tag: <input type="text" name="vpc_name" value="{{ request.form.vpc_name }}" required><br>
+	    CIDR Block: <input type="text" name="cidr_block" value="{{ request.form.cidr_block }}"><br>
+
+        <input type="submit" name="Submit" value="Create">
+	    <input type="reset" name="Reset"><br>
+    </form>
+</body>
+</html>

@@ -1,19 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AWS</title>
-</head>
-<body>
-    <div>
-        <nav>
-           <ul>
-               <li><a href="/aws_ec2">Launch Instance</a></li>
-               <li><a href="/aws_vpc">VPC</a></li>
-               <li><a href="/aws_elb">ELB</a></li>
-           </ul>
-        </nav>
-        <h3>Python Flask App</h3>
-    </div>
-</body>
-</html>
+{% extends 'aws_new.html' %}
+{% block container %}
+            <section id="one" class="wrapper style1 special">
+				<div class="container">
+					<header class="major">
+						<h2>Welcome to AWS</h2>
+						<p>Please use below mentioned services for AWS now!!!</p>
+					</header>
+					<div class="row 150%">
+						<div class="4u 12u$(medium)">
+							<section class="box">
+                                <i class="icon big rounded color1 fa-server"></i>
+                                <h3><a href="/aws_ec2">Launch Instance</a></h3>
+								<p>Launch Linux/Windows Instances.</p>
+							</section>
+						</div>
+						<div class="4u 12u$(medium)">
+							<section class="box">
+								<i class="icon big rounded color9 fa-connectdevelop"></i>
+								<h3><a href="#">Network</a></h3>
+								<p>Setup your VPC network on AWS.</p>
+							</section>
+						</div>
+						<div class="4u$ 12u$(medium)">
+							<section class="box">
+								<i class="icon big rounded color6 fa-share-alt"></i>
+                                <h3><a href="#">Load Balancers</a></h3>
+								<p>Elastic Load Balancer to share loads.</p>
+							</section>
+						</div>
+					</div>
+				</div>
+			</section>
+
+{% endblock %}

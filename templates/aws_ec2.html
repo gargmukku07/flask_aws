@@ -8,17 +8,18 @@
     <form role="form" action="/aws_ec2" method="post" id="carform">
     Application/Server Type:
     <select name="server_type" form="carform">
-     <option value="author">Author</option>
-     <option value="publish">Publish</option>
-     <option value="webserver">Webserver</option>
-     <option value="zabbix">Zabbix</option>
+        <option value="pmaster">Puppet Master</option>
+        <option value="author">Author</option>
+        <option value="publish">Publish</option>
+        <option value="webserver">Webserver</option>
+        <option value="zabbix">Zabbix</option>
     </select><br>
 
 	Application/Server Environment:
 	<select name="environment" form="carform">
-     <option value="dev">Dev</option>
-     <option value="qa">QA</option>
-     <option value="uat">Uat</option>
+        <option value="dev">Dev</option>
+        <option value="qa">QA</option>
+        <option value="uat">Uat</option>
     </select><br>
 
 	Instance Key Pair: <input type="text" name="key_name" value="{{ request.form.key_name }}" required><br>
@@ -26,8 +27,8 @@
 	Subnet ID: <input type="text" name="subnet_id" value="{{ request.form.subnet_id }}" required><br>
 	Instance Type:
 	<select name="instance_type" form="carform">
-     <option value="t2.micro">t2.micro</option>
-     <option value="t1.mini">T1-Mini</option>
+        <option value="t2.micro">t2.micro</option>
+        <option value="t1.mini">T1-Mini</option>
     </select><br>
 	Instance Count: <input type="number" name="instance_count" min="1" max="5" value="{{ request.form.instance_count }}" required><br>
 
