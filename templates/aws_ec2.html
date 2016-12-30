@@ -1,39 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AWS EC2</title>
-</head>
-<body>
-    <form role="form" action="/aws_ec2" method="post" id="carform">
-    Application/Server Type:
-    <select name="server_type" form="carform">
-        <option value="pmaster">Puppet Master</option>
-        <option value="author">Author</option>
-        <option value="publish">Publish</option>
-        <option value="webserver">Webserver</option>
-        <option value="zabbix">Zabbix</option>
-    </select><br>
+{% extends 'aws_new.html' %}
+{% block container %}
+            <section id="main" class="wrapper">
+                <div class="container">
+                    <header class="major">
+						<h2>Launch EC2</h2>
+						<p>Launch AWS Elastic compute instances.</p>
+					</header>
 
-	Application/Server Environment:
-	<select name="environment" form="carform">
-        <option value="dev">Dev</option>
-        <option value="qa">QA</option>
-        <option value="uat">Uat</option>
-    </select><br>
+					<!-- <a href="/aws" class="image fit"><img src="/static/images/aws_logo.png" alt="" /></a> -->
 
-	Instance Key Pair: <input type="text" name="key_name" value="{{ request.form.key_name }}" required><br>
-	Security Group: <input type="text" name="security_group" value="{{ request.form.security_group }}"><br>
-	Subnet ID: <input type="text" name="subnet_id" value="{{ request.form.subnet_id }}" required><br>
-	Instance Type:
-	<select name="instance_type" form="carform">
-        <option value="t2.micro">t2.micro</option>
-        <option value="t1.mini">T1-Mini</option>
-    </select><br>
-	Instance Count: <input type="number" name="instance_count" min="1" max="5" value="{{ request.form.instance_count }}" required><br>
-
-	<input type="submit" name="Submit" value="Launch">
-	<input type="reset" name="Reset"><br>
-    </form>
-</body>
-</html>
+                    <form role="form" method="post" action="/aws_ec2" id="carform">
+                        <div class="row uniform" 50%>
+                            <div class="6u 12u$(4)">
+                                Application/Server Type:
+                                <div class="select-wrapper">
+                                    <select name="server_type" form="carform">
+										<option value="pmaster">Puppet Master</option>
+                                        <option value="author">Author</option>
+                                        <option value="publish">Publish</option>
+                                        <option value="webserver">Webserver</option>
+                                        <option value="zabbix">Zabbix</option>
+									</select>
+								</div>
+                            </div>
+							<div class="6u$ 12u$(4)">
+                                Application/Server Environment:
+                                <div class="select-wrapper">
+                                    <select name="environment" form="carform">
+										<option value="dev">Dev</option>
+                                        <option value="qa">QA</option>
+                                        <option value="uat">Uat</option>
+									</select>
+								</div>
+							</div>
+                            <div class="6u 12u$(4)">
+                                Instance Key Pair:
+                                <input type="text" name="key_name" value="{{ request.form.key_name }}" required>
+                            </div>
+                            <div class="6u 12u$(4)">
+                                Security Group:
+                                <input type="text" name="security_group" value="{{ request.form.security_group }}">
+                            </div>
+                            <div class="6u 12u$(4)">
+                                Subnet ID:
+                                <input type="text" name="subnet_id" value="{{ request.form.subnet_id }}" required>
+                            </div>
+                            <div class="6u 12u$(4)">
+                                Instance Count:
+                                <div class="select-wrapper">
+                                    <select name="instance_count" form="carform">
+										<option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+									</select>
+								</div>
+                                <!-- <input type="number" name="instance_count" min="1" max="5" value="{{ request.form.instance_count }}" required> -->
+                            </div>
+                            <div class="12u$">
+                                Instance Type:
+                                <div class="select-wrapper">
+                                    <select name="instance_type" form="carform">
+                                        <option value="t2.micro">t2.micro</option>
+                                        <option value="t1.mini">T1-Mini</option>
+									</select>
+								</div>
+                            </div>
+                            <div class="12u$">
+                                <ul class="actions">
+								    <li><input type="submit" name="submit" value="Launch" class="special" /></li>
+									<li><input type="reset" name="Reset" value="Reset" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+{% endblock %}

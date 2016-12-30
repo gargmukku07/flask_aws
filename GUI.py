@@ -90,7 +90,7 @@ def aws_ec2():
                 ],
                 Tags=mytag
             )
-        return render_template('index.html', aws_ec2=environment)
+        return render_template('aws_home.html', aws_ec2=environment)
     else:
         return render_template('aws_ec2.html')
 
