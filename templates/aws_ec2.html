@@ -35,15 +35,44 @@
 							</div>
                             <div class="6u 12u$(4)">
                                 Instance Key Pair:
-                                <input type="text" name="key_name" value="{{ request.form.key_name }}" required>
+                                <!-- <input type="text" name="key_name" value="{{ request.form.key_name }}" required> -->
+                                <div class="select-wrapper">
+                                    <select name="key_name" form="carform">
+										{% for key_pair in key_pairs %}
+                                        <option value="{{ key_pair }}">{{ key_pair }}</option>
+                                        {% endfor %}
+									</select>
+								</div>
                             </div>
                             <div class="6u 12u$(4)">
                                 Security Group:
-                                <input type="text" name="security_group" value="{{ request.form.security_group }}">
+                                <!-- <input type="text" name="security_group" value="{{ request.form.security_group }}"> -->
+                                <div class="select-wrapper">
+                                    <select name="security_group" form="carform">
+                                        {% for sgroup in securitygroups %}
+                                        <option value="{{ sgroup }}">{{ sgroup }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="6u 12u$(4)">
+                                VPC ID:
+                                <div class="select-wrapper">
+                                    <select name="vpc_id" form="carform">
+                                        {% for vpc in vpcs %}
+                                        <option value="{{ vpc }}">{{ vpc }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
                             </div>
                             <div class="6u 12u$(4)">
                                 Subnet ID:
-                                <input type="text" name="subnet_id" value="{{ request.form.subnet_id }}" required>
+                                <!-- <input type="text" name="subnet_id" value="{{ request.form.subnet_id }}" required> -->
+                                <div class="select-wrapper">
+                                    <select name="subnet_id" form="carform">
+
+                                    </select>
+                                </div>
                             </div>
                             <div class="6u 12u$(4)">
                                 Instance Count:
@@ -56,7 +85,7 @@
 								</div>
                                 <!-- <input type="number" name="instance_count" min="1" max="5" value="{{ request.form.instance_count }}" required> -->
                             </div>
-                            <div class="12u$">
+                            <div class="6u 12u$(4)">
                                 Instance Type:
                                 <div class="select-wrapper">
                                     <select name="instance_type" form="carform">
@@ -75,4 +104,23 @@
                     </form>
                 </div>
             </section>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("select[name='vpc_id']").change(function(){
+
+                $("select[name='subnet_id']").empty();
+
+                sname = $("select[name='vpc_id'] option:selected").text();
+                $.getJSON($SCRIPT_ROOT + '/_parse_data', {
+                    a: sname
+                }, function(data) {
+                    var options = $("select[name='subnet_id']");
+                    $.each(data, function() {
+                        options.append($("<option />").val(this).text(this));
+                    });
+                });
+                return false;
+            });
+        });
+    </script>
 {% endblock %}

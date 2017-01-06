@@ -1,16 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>AWS VPC</title>
-</head>
-<body>
-    <form role="form" action="/aws_vpc" method="post">
-    	VPC Name Tag: <input type="text" name="vpc_name" value="{{ request.form.vpc_name }}" required><br>
-	    CIDR Block: <input type="text" name="cidr_block" value="{{ request.form.cidr_block }}"><br>
+{% extends 'aws_new.html' %}
+{% block container %}
+            <section id="main" class="wrapper">
+                <div class="container">
+                    <header class="major">
+						<h2>AWS VPC</h2>
+						<p>Launch AWS Virtual Private Network.</p>
+					</header>
 
-        <input type="submit" name="Submit" value="Create">
-	    <input type="reset" name="Reset"><br>
-    </form>
-</body>
-</html>
+					<!-- <a href="/aws" class="image fit"><img src="/static/images/aws_logo.png" alt="" /></a> -->
+
+                    <form role="form" method="post" action="/aws_vpc">
+                        <div class="row uniform" 50%>
+                            <div class="6u 12u$(4)">
+                                VPC Name Tag:
+                                <input type="text" name="vpc_name" value="{{ request.form.vpc_name }}" required>
+                            </div>
+
+							<div class="6u$ 12u$(4)">
+                                CIDR Block:
+                                <input type="text" name="cidr_block" value="{{ request.form.cidr_block }}">
+							</div>
+                            <div class="12u$">
+                                <ul class="actions">
+								    <li><input type="submit" name="submit" value="Create" class="special" /></li>
+									<li><input type="reset" name="Reset" value="Reset" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+{% endblock %}

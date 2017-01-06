@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+</head>
+<body>
+    <h3>{{ abc }}</h3>
+    <select name="server_type" form="carform">
+        {% for vpc in vpcs %}
+        <option value="{{ vpc }}">{{ vpc }}</option>
+        {% endfor %}
+    </select>
+    <select name="server" form="carform">
+
+    </select>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("select[name='server_type']").change(function(){
+
+                $("select[name='server']").empty();
+                sname = $("select[name='server_type'] option:selected").text();
+                $("#yourDiscount").text(sname);
+                $.getJSON($SCRIPT_ROOT + '/_parse_data', {
+                    a: sname
+                }, function(data) {
+                    var options = $("select[name='server']");
+                    $.each(data, function() {
+                        options.append($("<option />").val(this).text(this));
+                    });
+                    
+                });
+                return false;
+            });
+        });
+
+    </script>
+    <span id='yourDiscount'>567.39</span>
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+</body>
+</html>
